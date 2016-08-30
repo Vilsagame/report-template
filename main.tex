@@ -1,0 +1,89 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Exemple of a report
+%%
+%% Vilsafur
+%%
+%% v1   - 04/2016 :
+%%
+%% TODO :
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[french]{VGReport}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% GENERAL INFORMATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TODO Title of document
+\title{The title}
+
+%TODO authors
+\author{
+    Prenom1 Nom1,
+    Prenom2 Nom2 \&
+    Prenom3 Nom3
+}
+
+\begin{document}
+
+% création de la page de titre
+\maketitle
+
+% création de la table des matières
+\MyToc
+
+% Justification moins stricte : des mots ne dépasseront pas des paragraphes
+\sloppy
+
+\section{first section}
+\subsection{first subsection}
+\label{sec:first_subsection}
+
+\begin{enumerate}
+    % Comme pour itemize, chaque élément est défini avec la commande '\item'
+    \item premier élément ;
+    \item 2 élément ;
+    \item troisième élément.
+    \begin{enumerate}
+        \item là encore, on peut placer des sous-listes ;
+        \item ça marche exactement pareil que pour les listes non-numérotées ;
+        \begin{itemize}
+            \item on peut même mélanger les deux types de listes comme ici ;
+            \item et ici.
+        \end{itemize}
+    \end{enumerate}
+\end{enumerate}
+
+\begin{table}[htb]
+    % La commande '\centering' sert encore à centrer la table.
+    \centering
+    % Cette commande permet de colorer une ligne sur deux, pour améliorer la visibilité
+    \rowcolors{1}{LightColor}{}
+    % La commande '\tabular' créé la table proprement dite.
+    % le paramètre liste les colonnes de la table. Chaque lettre représente une colonne
+    % et son alignement : l=alignée à gauche, r=alignée à droite et c=centrée.
+    % Ici, on a deux colonnes alignées à gauche.
+    \begin{tabular}{l l}
+        \hline
+        % La commande '\rowcolor' colorie la ligne de titre de couleur plus foncée.
+        \rowcolor{DarkColor}
+        % Le contenu de la table est défini ligne à ligne. Les colonnes
+        % sont séparées par le caractère '&' et la fin de la ligne est
+        % indiquée par la chaine '\\' (obligatoire).
+        % La ligne de titre doit etre en gras (commande '\textbf')
+        \textbf{Type d'objet}   & \textbf{Préfixe}  \\
+        % La commande '\hline' insère une séparation d'épaisseur normale.
+        \hline
+        section                 & \texttt{sec}  \\
+        figure                  & \texttt{fig}  \\
+        table                   & \texttt{tab}  \\
+        equation                & \texttt{eq}   \\
+        \hline
+    \end{tabular}
+    % La légende est définie comme pour une figure.
+    \caption{Préfixes utilisés conventionnellement pour définir les noms des labels.}
+    % Le label aussi est défini comme pour une figure, mais en utilisant le préfixe 'tab' plutot que 'fig'.
+    \label{tab:prefixes}
+\end{table}
+
+\end{document}
+
